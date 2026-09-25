@@ -1,0 +1,274 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* ============================================ */
+/* SIDEBAR PREMIUM - SISTEMA POSTGRADO          */
+/* ============================================ */
+
+:root {
+    --uagrm-blue: #1e3a8a;
+    --uagrm-blue-light: #1d4ed8;
+    --sidebar-text: #374151;
+    --sidebar-text-muted: #6b7280;
+    --sidebar-hover: #f3f4f6;
+    --sidebar-border: #e5e7eb;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.premium-sidebar {
+    width: 288px;
+    background: #ffffff;
+    border-right: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    min-height: 100vh;
+    font-family: 'Instrument Sans', system-ui, sans-serif;
+}
+
+/* ===== LOGO / MARCA ===== */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.sidebar-brand-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--uagrm-blue), var(--uagrm-blue-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.sidebar-brand-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.sidebar-brand-subtitle {
+    font-size: 12px;
+    color: var(--sidebar-text-muted);
+    margin: 0;
+}
+
+/* ===== NAVEGACIÓN ===== */
+.sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Item individual */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 12px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.sidebar-item:hover {
+    background-color: var(--sidebar-hover);
+}
+
+.sidebar-item i {
+    font-size: 18px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estado activo con gradiente */
+.sidebar-item.active {
+    background: linear-gradient(90deg, var(--uagrm-blue), var(--uagrm-blue-light));
+    color: #ffffff;
+    box-shadow: 0 10px 20px -10px rgba(30, 58, 138, 0.5);
+}
+
+/* Badge (contador) */
+.sidebar-badge {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background-color: var(--uagrm-blue);
+    color: #ffffff;
+}
+
+.sidebar-item.active .sidebar-badge {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+/* Dropdown (Reportes) */
+.sidebar-dropdown {
+    padding-left: 16px;
+    margin-top: 4px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-dropdown.open {
+    display: flex;
+}
+
+.sidebar-dropdown .sidebar-item {
+    height: 40px;
+    font-size: 13px;
+    color: var(--sidebar-text-muted);
+}
+
+/* Flecha del dropdown */
+.sidebar-item .arrow-icon {
+    margin-left: auto;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-item.open .arrow-icon {
+    transform: rotate(90deg);
+}
+
+/* ===== PERFIL DE USUARIO (abajo) ===== */
+.sidebar-footer {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--sidebar-border);
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+}
+
+.sidebar-user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--uagrm-blue), var(--uagrm-blue-light));
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.sidebar-user-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar-user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-user-role {
+    font-size: 11px;
+    color: var(--sidebar-text-muted);
+    margin: 0;
+}
+
+.sidebar-logout-btn {
+    padding: 6px;
+    border-radius: 8px;
+    color: var(--sidebar-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sidebar-logout-btn:hover {
+    background-color: #e5e7eb;
+    color: #dc2626;
+}
+
+/* ===== HEADER DEL CONTENIDO ===== */
+.content-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--sidebar-border);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-header-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.content-header-date {
+    font-size: 13px;
+    color: var(--sidebar-text-muted);
+}
+
+/* ===== ALERTAS ===== */
+.alert-success-custom {
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #15803d;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.alert-error-custom {
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
